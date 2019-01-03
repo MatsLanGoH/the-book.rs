@@ -2,7 +2,7 @@ use std::io;
 
 
 fn main() {
-    println!("Hello, world!");
+    println!("Please input an integer to calculate the Fibonacci number");
 
     let mut n = String::new();
 
