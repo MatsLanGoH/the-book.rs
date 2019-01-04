@@ -22,8 +22,14 @@ fn main() {
         } else {
             suffix = "th";
         }
-        println!("On the {}{} of Christmas,", index, suffix);
-        println!("{}", items[index]);
+        println!("On the {}{} of Christmas,", index + 1, suffix);
+        println!("my true love sent to me:");
+        
+        println!("{} {}", index + 1, items[index]);
+        // Ascii art taken from https://www.asciiart.eu/holiday-and-events/christmas/other
+        println!(" .-.  .-.  .-.  .-.  .-.  .-.  .-.  .-.  .-.  .-.  .-.  .-.  .-.");
+        println!("(   )(   )(   )(   )(   )(   )(   )(   )(   )(   )(   )(   )(   )");
+        println!(" `-'  `-'  `-'  `-'  `-'  `-'  `-'  `-'  `-'  `-'  `-'  `-'  `-'");
     }
 
 }
