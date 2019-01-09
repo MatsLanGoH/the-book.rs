@@ -1,6 +1,4 @@
 // Solution for Exercise 04 - Mad Lib
-// Prompt for 4 kinds of input
-// Display output that shows the result
 use std::io;
 use std::io::Write;
 
