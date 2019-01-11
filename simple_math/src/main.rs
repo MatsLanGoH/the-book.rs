@@ -1,4 +1,4 @@
-// Solution for Exercise 05 - Simple Mah
+// Solution for Exercise 05 - Simple Math
 use std::io;
 use std::io::Write;
 
