@@ -5,12 +5,20 @@ fn main() {
     println!("length of {} is {}", s1, len);
 
     // The Slice Type
-    let s = String::from("hello world");
-    let hello = &s[0..5];  // excluding end
+    let s = String::from("hello world, how are you");
+    let hello = &s[..5];  // excluding end, starting at the beginning
     let world = &s[6..=10];  // including end
-    println!("{} {}", hello, world);
+    let howareyou = &s[11..]; // up to the end
+    println!("{} {} {}", hello, world, howareyou);
+
+    println!("{}", &s[..]); // this works as well!
+
+    // Slicing an array
+    let a = [1, 2, 3, 4, 5];
+    let slice = &a[1..3];
+    println!("{:?}", slice);
 }
 
-fn calculate_length(s: &String) -> usize {
+fn calculate_length(s: &str) -> usize {
     s.len()
 }
