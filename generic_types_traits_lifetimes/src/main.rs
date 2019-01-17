@@ -16,21 +16,8 @@ fn _main() {
     );
 }
 
-
-fn largest_i32(list: &[i32]) -> i32 {
-    let mut largest = list[0];
-
-    for &number in list.iter() {
-        if number > largest {
-            largest = number;
-        }
-    }
-
-    largest
-}
-
-
-fn largest_char(list: &[char]) -> char {
+// Bound Trait for generic
+fn largest<T: PartialOrd + Copy>(list: &[T]) -> T {
     let mut largest = list[0];
 
     for &item in list.iter() {
@@ -45,11 +32,11 @@ fn largest_char(list: &[char]) -> char {
 fn main() {
     // find largest i32
     let number_list = vec![1231, 12314, 91230, 1238, 123];
-    let result = largest_i32(&number_list);
+    let result = largest(&number_list);
     println!("The largest number is {}", result);
 
     // find largest char
     let char_list = vec!['a', 'y', 'o', 'q'];
-    let result = largest_char(&char_list);
+    let result = largest(&char_list);
     println!("The largest char is {}", result);
 }
