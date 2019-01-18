@@ -1,6 +1,7 @@
 use generic_types_traits_lifetimes::{
     Tweet,
     Summary,
+    NewsArticle,
 };
 
 fn _main() {
@@ -39,4 +40,23 @@ fn main() {
     let char_list = vec!['a', 'y', 'o', 'q'];
     let result = largest(&char_list);
     println!("The largest char is {}", result);
+
+    // Play around with traits
+    let tweet = Tweet {
+        username: String::from("water_stapler"),
+        content: String::from("I'm looking for a more exciting career"),
+        reply: false,
+        retweet: false,
+    };
+
+    println!("1 new tweet: {}", tweet.summarize());
+
+    let article = NewsArticle {
+        author: String::from("Kent Brockman"),
+        headline: String::from("Fire in the hole"),
+        content: String::from("The Springfield annual fireworks competition ends with a terrible disaster."),
+        location: String::from("Springfield"),
+    };
+
+    println!("News flash: {}", article.summarize());
 }
