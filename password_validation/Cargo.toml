@@ -1,0 +1,9 @@
+[package]
+name = "password_validation"
+version = "0.1.0"
+authors = ["Matthias Lambrecht <mats.lan.pod@googlemail.com>"]
+edition = "2018"
+
+[dependencies]
+bcrypt = "0.2"
+rpassword = "2.1.0"
