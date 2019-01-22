@@ -1,15 +1,11 @@
 // Solution for Exercise 15 - Password validation
 //
-// Prompt for username
-// Prompt for Password
-//
-// Compare username / password given by the user
-//
 // If correct password, display "Welcome"
 //
 // Otherwise print "I don't know you"
 use std::collections::HashMap;
 use bcrypt::{hash, verify};
+use password_validation::get_input;
 
 fn main() {
     // Create a hash map of usernames/passwords
@@ -26,20 +22,25 @@ fn main() {
         String::from("captain"),
         hash("12345", 4).unwrap()
     );
+    accounts.insert(
+        String::from("crustacean"),
+        hash("abc$12345", 4).unwrap()
+    );
+
+    // Prompt for username and see if it exists
+    let username = get_input("What is your username?");
 
     // Look up user (display a message if not exists)
-    let input = String::from("hacker");
-    let lookup = accounts.get(&input);
-    match lookup {
-        Some(v) => {
-            println!("{:#?}", v);
-        }
-        None => {
-            println!("User not found");
-        },
-    };
+    if let Some(v) = accounts.get(&username) {
+        let password = get_input("What is the password?");
+        println!("{:#?}", verify(&password, &v));
+        println!("{:#?}", v);
+    } else {
+        println!("User not found!");
+    }
 
-    
+    // If user is correct, prompt for password
 
-    println!("Hello, world!");
+    // Ensure that password is correct
+
 }
