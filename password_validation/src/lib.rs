@@ -3,6 +3,7 @@ use std::io;
 use std::io::Write;
 
 use bcrypt::hash;
+use rpassword::read_password;
 
 pub fn get_input(prompt: &str) -> String {
     print!("{} ", prompt);
@@ -16,6 +17,15 @@ pub fn get_input(prompt: &str) -> String {
     input.trim_end().to_string()
 }
 
+pub fn get_password(prompt: &str) -> String {
+    print!("{} ", prompt);
+    let _ = io::stdout().flush();
+
+    let mut password = String::new();
+    password = rpassword::read_password().unwrap();
+
+    password
+}
 
 pub fn generate_accounts() -> HashMap<String, String> {
     // Create a hash map of usernames/passwords

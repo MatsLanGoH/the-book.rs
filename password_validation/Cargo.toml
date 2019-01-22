@@ -6,3 +6,4 @@ edition = "2018"
 
 [dependencies]
 bcrypt = "0.2"
+rpassword = "2.1.0"
