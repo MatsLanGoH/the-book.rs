@@ -24,11 +24,17 @@ impl Layout for CounterApplication {
             .with_child(button)
     }
 }
-
+fn update_counter(app_state: &mut AppState<CounterApplication>,
+                  _event: WindowEvent<CounterApplication>) -> UpdateScreen {
+    app_state.data.modify(|state| state.counter += 1);
+    Redraw
+}
 
 fn main() {
-    let mut app = App::new(
-        CounterApplication { },
+    let app = App::new(
+        CounterApplication { 
+            counter: 0,
+        },
         AppConfig::default()
     );
     let window = Window::new(
