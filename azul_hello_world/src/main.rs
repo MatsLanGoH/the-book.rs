@@ -1,3 +1,23 @@
+extern crate azul;
+
+use azul::prelude::*;
+
+struct MyDataModel { }
+
+impl Layout for MyDataModel {
+    fn layout(&self, _: WindowInfo<Self>) -> Dom<Self> {
+        Dom::new(NodeType::Div)
+    }
+}
+
 fn main() {
-    println!("Hello, world!");
+    let app = App::new(
+        MyDataModel { },
+        AppConfig::default()
+    );
+    let window = Window::new(
+        WindowCreateOptions::default(),
+        css::native()
+    ).unwrap();
+    app.run(window).unwrap();
 }
