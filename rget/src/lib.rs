@@ -1,4 +1,5 @@
 use indicatif::{ProgressBar, ProgressStyle};
+use reqwest::{Url, UrlError};
 
 pub fn create_progress_bar(
     quiet_mode: bool,
@@ -26,3 +27,15 @@ pub fn create_progress_bar(
 
     bar
 }
+
+pub fn parse_url(url: &str) -> Result<Url, UrlError> {
+    match Url::parse(url) {
+        Ok(url) => Ok(url),
+        Err(e) if e == UrlError::RelativeUrlWithoutBase => {
+            let url_with_base = format!("{}{}", "http://", url);
+            Url::parse(url_with_base.as_str())
+        }
+        Err(e) => Err(e),
+    }
+}
+
