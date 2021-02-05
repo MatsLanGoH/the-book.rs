@@ -10,3 +10,5 @@ Brian P. Hogan
 
   - [x] Input, Processing, and Output
   - [ ] **WIP** Calculations
+
+- `wget` clone from [Writing a Command Line Tool in Rust](https://mattgathu.github.io/writing-cli-app-rust/)

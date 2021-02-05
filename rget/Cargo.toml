@@ -1,0 +1,11 @@
+[package]
+name = "rget"
+version = "0.1.0"
+authors = ["Matthias Lambrecht <mats.lan.pod@googlemail.com>"]
+edition = "2018"
+
+[dependencies]
+clap = "2.26.0"
+console = "0.7.5"
+indicatif = "0.11.0"
+reqwest = "0.9.9"
